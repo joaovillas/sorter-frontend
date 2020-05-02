@@ -1,0 +1,17 @@
+.new-draw-root {
+  display: flex;
+  flex-direction: column;
+  margin: 15px auto ;
+  height: 80vh;
+  border: 1px solid black;
+  justify-content: center;
+}
+
+.new-draw-root .form-container {
+  display: flex;
+  border: 1px solid black;
+  align-self: center;
+  margin: 40px 0;
+  height: 100%;
+  width: 70%;
+}

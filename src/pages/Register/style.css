@@ -1,0 +1,46 @@
+.register-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-top:10vh;
+  
+}
+
+.register-container .register-container-img {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.register-container .register-with-container {
+  display: flex;
+  padding: 30px;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 30vw;
+  
+}
+
+.register-container .form-container {
+  display: flex;
+  align-items: center;
+  padding: 50px 0;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 30vw;
+  height: 40vh;
+  flex-wrap: wrap;
+  border-radius: 6px; 
+  min-width: 35vh;
+  border: 1px solid #242424;
+}
+
+.register-container .form-container input {
+  width: 30vh;
+}
+
+.register-container .form-container .button-container {
+  display: flex;
+  width: 34vh;
+}

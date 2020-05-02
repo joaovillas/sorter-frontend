@@ -1,0 +1,21 @@
+.login-container {
+  display: flex;
+  flex-direction: row;
+  margin: 9vh auto 0 auto;
+  width: 70wh;
+  height: 80vh;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 30vh;
+  width: 50vh;
+  margin: 30vh 100px;
+}
+
+.login-container-img {
+  max-width: 700px;
+}

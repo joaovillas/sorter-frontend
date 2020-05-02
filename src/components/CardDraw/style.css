@@ -1,0 +1,11 @@
+.card-tools {
+  display: flex;
+  justify-content: flex-end;
+  justify-items: left;
+  
+}
+
+.card-tools .card-icon {
+  color: #7C74FC;
+  margin-left: 6px;
+}
