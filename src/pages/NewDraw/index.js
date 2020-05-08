@@ -1,6 +1,6 @@
 import React from 'react';
 import Pageroot from '../PageRoot';
-import { Grid, Paper, TextField, Button } from '@material-ui/core';
+import { Grid, TextField, Button, Typography } from '@material-ui/core';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -10,16 +10,11 @@ import './style.css'
 export default function NewDraw() {
   const [value, setValue] = React.useState('free');
   const [date, setSelectedDate] = React.useState(new Date().toLocaleString());
-  console.log(new Date());
+  console.log(date);
 
   const handleChange = (event) => {
     setValue(event.target.value);
     console.log(value);
-  };
-
-
-  const handleDateChange = (evnt) => {
-    console.log(date);
   };
 
   return (
@@ -28,6 +23,9 @@ export default function NewDraw() {
         <Grid className="new-draw-root" item xs={12}>
           <Grid className="form-container" item xs={12} >
             <form>
+              <Typography variant="h4" >
+                Cadastro de um novo sorteio
+              </Typography>
               <TextField label="Código do Sorteio" variant="outlined" size="small" />
               <FormControl component="fieldset" >
                 <RadioGroup className="form-radio-container" value={value} onChange={handleChange} aria-label="quiz" name="quiz" >
@@ -44,12 +42,16 @@ export default function NewDraw() {
               <TextField
                 id="date"
                 label="Prazo de Término"
+                defaultValue={date}
                 type="date"
                 variant="outlined"
                 InputLabelProps={{
                   shrink: true,
                 }}
               />
+              <Button type="submit" variant="outlined" color="primary" >
+                Criar Sorteio
+              </Button>
             </form>
           </Grid>
         </Grid>

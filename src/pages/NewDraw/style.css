@@ -1,9 +1,8 @@
 .new-draw-root {
   display: flex;
   flex-direction: column;
-  height: 50vh;
+  height: 70vh;
   justify-content: center;
-  background-color: #FFF;
 }
 
 .new-draw-root .form-container {

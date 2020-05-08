@@ -24,7 +24,8 @@ export default function ChartComponent({ chartData }) {
       options={status.options}
       series={status.series}
       type="bar"
-      width="50%"
+      width={chartData.width}
+      height={chartData.height}
     />
   )
 }

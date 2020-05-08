@@ -4,6 +4,12 @@ import './style.css'
 import { Link } from 'react-router-dom';
 import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 import EditIcon from '@material-ui/icons/Edit';
+import ShareIcon from '@material-ui/icons/Share';
+import CheckIcon from '@material-ui/icons/Check';
+import { Tooltip } from '@material-ui/core';
+import Grow from '@material-ui/core/Grow';
+import { Alert, AlertTitle } from '@material-ui/lab';
+import { statusHelper } from '../../helpers/statusHelper';
 
 const styles = {
   title: {
@@ -12,21 +18,71 @@ const styles = {
   divider: {
     marginBottom: '20px'
   },
+  cardRoot: {
+    height: '50vh'
+  }
 }
 
+export default function CardDraw({ draw_code, participants, end_date, prize, max_participants, status }) {
 
-export default function CardDraw({ draw_code, participants, end_date, prize, max_participants }) {
+  const [open, setOpen] = React.useState(false);
+  const [copied, setCopied] = React.useState(false);
+
+  function criteriaLink() {
+    if (copied) {
+      return <Grow {...(copied ? { timeout: 2000 } : {})} in={copied} collapsedHeight={40}>
+        <CheckIcon />
+      </Grow >
+    }
+
+    return(
+      <Grow in={true} {...(copied ? { timeout: 2000 } : {})} collapsedHeight={40}>
+        <ShareIcon />
+      </Grow>
+    ) ;
+  }
+
+  function displayAlert() {
+    if (copied) {
+      return (
+        <Grow {...(copied ? { timeout: 1000 } : {})} in={copied} out={copied} collapsedHeight={40}>
+          <Alert style={{ marginTop: '2vh' }} severity="success">
+            <AlertTitle>Link do sorteio: {draw_code} Copiado com sucesso</AlertTitle>
+          </Alert>
+        </Grow >
+      );
+    }
+  }
+
+  function generateSharableLink() {
+    const sharableLink = document.location.href + 'draw/join?draw_id=' + draw_code;
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, 4000)
+    navigator.clipboard.writeText(sharableLink);
+  }
+
   const draw_link = `/draw/info/${draw_code}`;
   return (
-    <Card>
+    <Card style={styles.cardRoot}>
       <CardContent>
         <div className="card-tools">
-          <Link className="card-icon">
-            <EditIcon />
-          </Link>
-          <Link className="card-icon">
-            <DeleteOutlineOutlinedIcon />
-          </Link>
+          <Tooltip title="Gerar código compartilhável">
+            <Link to="#" onClick={generateSharableLink} className="card-icon">
+              {criteriaLink()}
+            </Link>
+          </Tooltip>
+          <Tooltip title="Editar Sorteio">
+            <Link to="#" className="card-icon">
+              <EditIcon />
+            </Link>
+          </Tooltip>
+          <Tooltip title="Apagar Sorteio">
+            <Link to="#" className="card-icon">
+              <DeleteOutlineOutlinedIcon />
+            </Link>
+          </Tooltip>
         </div>
         <Typography style={styles.title}>
           <Link to={draw_link}> {draw_code} </Link>
@@ -44,6 +100,11 @@ export default function CardDraw({ draw_code, participants, end_date, prize, max
         <Typography>
           Quantidade Máxima: {max_participants}
         </Typography>
+        <Typography>
+          Status: {statusHelper(status)}
+        </Typography>
+
+        {displayAlert()}
       </CardContent>
     </Card>
   );

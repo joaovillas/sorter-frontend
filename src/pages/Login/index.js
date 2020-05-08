@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 export default function Login() {
+  
+  document.body.style.backgroundColor = "#FFF";
   return (
     <div className="login-container">
       <div className="login-form">

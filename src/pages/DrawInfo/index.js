@@ -284,6 +284,8 @@ export default function DrawInfo({ match: { params } }) {
     total: rows.length,
     female,
     male,
+    width: '100%',
+    height: '300%'
   }
 
   return (

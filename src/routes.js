@@ -5,6 +5,7 @@ import Register from './pages/Register';
 import Home from './pages/Home';
 import DrawInfo from './pages/DrawInfo';
 import NewDraw from './pages/NewDraw';
+import JoinDraw from './pages/JoinDraw';
 
 export default function Routes() {
   return (
@@ -15,6 +16,7 @@ export default function Routes() {
         <Route path='/login' component={Login} />
         <Route path='/draw/info/:draw_id' exact component={DrawInfo} />
         <Route path='/draw/new' exact component={NewDraw} />
+        <Route path='/draw/join' component={JoinDraw} />
       </Switch>
     </BrowserRouter>
   );
