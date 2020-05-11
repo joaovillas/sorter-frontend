@@ -1,7 +1,7 @@
 .new-draw-root {
   display: flex;
   flex-direction: column;
-  height: 70vh;
+  height: 80vh;
   justify-content: center;
 }
 
@@ -15,11 +15,15 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 75%;
+  width: 80%;
 }
 
 .new-draw-root .form-container .form-radio-container{
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.draw-preview {
+  margin-top: 30px;
 }

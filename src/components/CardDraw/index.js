@@ -16,14 +16,15 @@ const styles = {
     textAlign: 'center'
   },
   divider: {
-    marginBottom: '20px'
+    marginBottom: '10px'
   },
   cardRoot: {
-    height: '50vh'
+    maxHeight: '100vh',
+    maxWidth: '21vw',
   }
 }
 
-export default function CardDraw({ draw_code, participants, end_date, prize, max_participants, status }) {
+export default function CardDraw({ draw_code, participants, img_url, end_date, prize, max_participants, status }) {
 
   const [open, setOpen] = React.useState(false);
   const [copied, setCopied] = React.useState(false);
@@ -35,11 +36,11 @@ export default function CardDraw({ draw_code, participants, end_date, prize, max
       </Grow >
     }
 
-    return(
+    return (
       <Grow in={true} {...(copied ? { timeout: 2000 } : {})} collapsedHeight={40}>
         <ShareIcon />
       </Grow>
-    ) ;
+    );
   }
 
   function displayAlert() {
@@ -88,6 +89,8 @@ export default function CardDraw({ draw_code, participants, end_date, prize, max
           <Link to={draw_link}> {draw_code} </Link>
         </Typography>
         <Divider style={styles.divider} />
+        <img className="card-draw-img" src={img_url} />
+        <Divider />
         <Typography>
           Participantes: {participants}
         </Typography>

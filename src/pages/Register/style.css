@@ -18,8 +18,10 @@
   padding: 30px;
   align-items: center;
   flex-direction: row;
-  justify-content: space-between;
-  width: 30vw;
+  width: 86%;
+  border: 1px solid black;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 
@@ -29,11 +31,22 @@
   padding: 50px 0;
   justify-content: space-between;
   flex-direction: column;
-  width: 30vw;
-  height: 40vh;
+  width: 40%;
+  height: 70vh;
   flex-wrap: wrap;
   border-radius: 6px; 
-  min-width: 35vh;
-  border: 1px solid #242424;
+  min-width: 40vh;
   background-color: #fff;
+}
+
+.register-container .form-container input {
+  display: flex;
+  min-width: 30vw;
+}
+
+.register-container .form-container .radio-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-width: 31vw;
 }
