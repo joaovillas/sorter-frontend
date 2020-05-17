@@ -10,6 +10,7 @@ import { Tooltip } from '@material-ui/core';
 import Grow from '@material-ui/core/Grow';
 import { Alert, AlertTitle } from '@material-ui/lab';
 import { statusHelper } from '../../helpers/statusHelper';
+import { parseToHumanDate } from '../../helpers/dateHelper';
 
 const styles = {
   title: {
@@ -17,10 +18,6 @@ const styles = {
   },
   divider: {
     marginBottom: '10px'
-  },
-  cardRoot: {
-    maxHeight: '100vh',
-    maxWidth: '21vw',
   }
 }
 
@@ -66,7 +63,7 @@ export default function CardDraw({ draw_code, participants, img_url, end_date, p
 
   const draw_link = `/draw/info/${draw_code}`;
   return (
-    <Card style={styles.cardRoot}>
+    <Card className="card-root" style={styles.cardRoot}>
       <CardContent>
         <div className="card-tools">
           <Tooltip title="Gerar código compartilhável">
@@ -95,7 +92,7 @@ export default function CardDraw({ draw_code, participants, img_url, end_date, p
           Participantes: {participants}
         </Typography>
         <Typography>
-          Data término: {end_date}
+          Data término: {parseToHumanDate(end_date)}
         </Typography>
         <Typography>
           Prêmio: {prize}

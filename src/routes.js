@@ -1,22 +1,24 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
 import DrawInfo from './pages/DrawInfo';
 import NewDraw from './pages/NewDraw';
 import JoinDraw from './pages/JoinDraw';
+import AuthRoute from './components/AuthRoute';
+import GuestRoute from './components/GuestRoute';
 
 export default function Routes() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path='/' exact component={Home} />
-        <Route path='/register' component={Register} />
-        <Route path='/login' component={Login} />
-        <Route path='/draw/info/:draw_id' exact component={DrawInfo} />
-        <Route path='/draw/new' exact component={NewDraw} />
-        <Route path='/draw/join' component={JoinDraw} />
+        <AuthRoute path='/' exact Component={Home} />
+        <GuestRoute path='/register' Component={Register} />
+        <GuestRoute path='/login' Component={Login} />
+        <AuthRoute path='/draw/info/:draw_id' exact Component={DrawInfo} />
+        <AuthRoute path='/draw/new' exact Component={NewDraw} />
+        <AuthRoute path='/draw/join' Component={JoinDraw} />
       </Switch>
     </BrowserRouter>
   );

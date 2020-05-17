@@ -15,8 +15,8 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import HomeIcon from '@material-ui/icons/Home';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -98,6 +98,14 @@ export default function Menu({ children }) {
     setOpen(false);
   };
 
+  const menuItems = [
+    {
+      item: 'Menu Principal',
+      icon: <HomeIcon />,
+      url: '/'
+    }
+  ]
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -144,11 +152,13 @@ export default function Menu({ children }) {
         </div>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
+          {menuItems.map((menu) => (
+            <Link key={menu.item} to={menu.url}>
+              <ListItem button key={menu.item}>
+                <ListItemIcon>{menu.icon}</ListItemIcon>
+                <ListItemText primary={menu.item} />
+              </ListItem>
+            </Link>
           ))}
         </List>
       </Drawer>

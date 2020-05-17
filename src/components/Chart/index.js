@@ -8,13 +8,13 @@ export default function ChartComponent({ chartData }) {
         id: "basic-bar"
       },
       xaxis: {
-        categories: ['Média Idade', 'Homens', 'Mulheres', 'Total']
+        categories: ['Homens', 'Mulheres', 'Total']
       }
     },
     series: [
       {
         name: "series-1",
-        data: [chartData.avarage, chartData.male, chartData.female, chartData.total],
+        data: [chartData.male, chartData.female, chartData.total],
       }
     ],
   };

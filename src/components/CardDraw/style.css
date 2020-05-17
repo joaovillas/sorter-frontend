@@ -11,6 +11,11 @@
 }
 
 .card-draw-img {
-  width: 19vw;
-  height: 20vh;
+  height: 25vh;
+}
+
+
+.card-root {
+  height: 67vh;
+  width: 21wh;
 }

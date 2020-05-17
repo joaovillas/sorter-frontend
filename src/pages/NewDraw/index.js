@@ -64,7 +64,7 @@ export default function NewDraw() {
                   shrink: true,
                 }}
               />
-              <TextField label="Imagem de exibição" onChange={evt => setImgUrl(evt.target.value) } variant="outlined" />
+              <TextField label="Imagem de exibição" onChange={evt => setImgUrl(evt.target.value)} variant="outlined" />
               <Button type="submit" variant="outlined" color="primary" >
                 Criar Sorteio
               </Button>
