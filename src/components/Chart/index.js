@@ -1,26 +1,27 @@
 import React from "react";
 import Chart from "react-apexcharts";
 
-export default function ChartComponent({ chartData }) {
+export default function ChartComponent({ chartData = [], categories = [], chart_id = 'basic-bar', series = 'Total' }) {
   const status = {
     options: {
       chart: {
-        id: "basic-bar"
+        id: chart_id
       },
       xaxis: {
-        categories: ['Homens', 'Mulheres', 'Total']
+        categories: categories
       }
     },
     series: [
       {
-        name: "series-1",
-        data: [chartData.male, chartData.female, chartData.total],
+        name: "Total",
+        data: chartData,
       }
     ],
   };
+  const user = JSON.parse(localStorage.getItem('user'));
 
   return (
-    <Chart
+    < Chart
       options={status.options}
       series={status.series}
       type="bar"

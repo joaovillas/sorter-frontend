@@ -1,0 +1,12 @@
+.waiting-root {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.spinner {
+  margin: auto auto;
+  min-width: 30px;
+}

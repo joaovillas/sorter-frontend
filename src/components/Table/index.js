@@ -121,19 +121,11 @@ export default function CustomPaginationActionsTable({ headers = [], rows = [] }
           : rows
         ).map((row, key) => (
           <TableRow key={row.name}>
-            <TableCell>{key}</TableCell>
             <TableCell>{row.name}</TableCell>
-            <TableCell>{row.age}</TableCell>
             <TableCell>{row.email}</TableCell>
             <TableCell>{row.gender}</TableCell>
           </TableRow>
         ))}
-
-        {emptyRows > 0 && (
-          <TableRow style={{ height: 53 * emptyRows }}>
-            <TableCell colSpan={headers.lenght} />
-          </TableRow>
-        )}
       </TableBody>
       <TableFooter>
         <TableRow>

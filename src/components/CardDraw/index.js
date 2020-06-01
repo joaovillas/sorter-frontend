@@ -72,7 +72,7 @@ export default function CardDraw({ draw_code, participants, img_url, end_date, p
             </Link>
           </Tooltip>
           <Tooltip title="Editar Sorteio">
-            <Link to="#" className="card-icon">
+            <Link to={`/draw/edit/${draw_code}`} className="card-icon">
               <EditIcon />
             </Link>
           </Tooltip>

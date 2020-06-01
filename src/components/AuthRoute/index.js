@@ -1,19 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
 
 export default function AuthRoute({ Component, ...rest }) {
+  const { auth } = useContext(AuthContext);
 
-  const isAuthenticated = !!(localStorage.getItem('user_token') && localStorage.getItem('user'));
-  rest.isAuthenticated = isAuthenticated;
   return (
     <Route
       {...rest}
       render={() => {
-        return isAuthenticated ? <Component {...rest} /> :
+        return auth.isAuth ? <Component {...rest} /> :
           <Redirect to='/login' />
-        }
+      }
       }
     />
   )
 
-}
+} 

@@ -17,6 +17,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import HomeIcon from '@material-ui/icons/Home';
 import { Link } from 'react-router-dom';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import { AuthContext } from '../../contexts/AuthContext';
 
 const drawerWidth = 240;
 
@@ -89,6 +91,7 @@ export default function Menu({ children }) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const { logout } = React.useContext(AuthContext);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -103,6 +106,13 @@ export default function Menu({ children }) {
       item: 'Menu Principal',
       icon: <HomeIcon />,
       url: '/'
+    },
+    {
+      item: 'Logout',
+      icon: <ExitToAppIcon />,
+      onClick: () => {
+        logout();
+      }
     }
   ]
 
@@ -154,7 +164,7 @@ export default function Menu({ children }) {
         <List>
           {menuItems.map((menu) => (
             <Link key={menu.item} to={menu.url}>
-              <ListItem button key={menu.item}>
+              <ListItem button onClick={menu.onClick} key={menu.item}>
                 <ListItemIcon>{menu.icon}</ListItemIcon>
                 <ListItemText primary={menu.item} />
               </ListItem>
